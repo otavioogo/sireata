@@ -8,6 +8,12 @@ import br.edu.utfpr.dv.sireata.dao.AnexoDAO;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 
 public class AnexoBO {
+	
+	private AnexoB anexoB;
+	
+	public AnexoB(){
+		this.anexoB = new AnexoB();
+	}
 
 	public Anexo buscarPorId(int id) throws Exception{
 		try{
@@ -66,9 +72,9 @@ public class AnexoBO {
 	
 	public void excluir(int id) throws Exception{
 		try{
-			AnexoDAO dao = new AnexoDAO();
 			
-			dao.excluir(id);
+			this.anexoB.excluir(id);
+			
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
