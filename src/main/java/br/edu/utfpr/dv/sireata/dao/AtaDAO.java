@@ -15,6 +15,12 @@ import br.edu.utfpr.dv.sireata.util.DateUtils;
 
 public class AtaDAO {
 	
+	private carregar<obj> _obj;
+	public void addcarregarObj(Objeto objeto){
+		_obj.add(objeto);
+	}
+		
+	
 	public Ata buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -177,7 +183,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -210,7 +216,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -243,7 +249,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -276,7 +282,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -309,7 +315,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -343,7 +349,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -377,7 +383,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -411,7 +417,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
@@ -445,7 +451,7 @@ public class AtaDAO {
 			List<Ata> list = new ArrayList<Ata>();
 			
 			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+				
 			}
 			
 			return list;
