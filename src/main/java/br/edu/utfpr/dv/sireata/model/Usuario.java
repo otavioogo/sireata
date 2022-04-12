@@ -71,7 +71,6 @@ public class Usuario {
 		this.administrador = administrador;
 	}
 
-	
 	@Override
 	public String toString(){
 		return this.getNome();
@@ -81,11 +80,9 @@ public class Usuario {
     public boolean equals(final Object object) {
         if (!(object instanceof Usuario)) {
             return false;
-        }else if(this.getIdUsuario() == ((Usuario)object).getIdUsuario()){
-        	return true;
-        }else{
-        	return false;
-        }
+        }else {
+		return this.getIdUsuario() == 
+		((Usuario)) object).getIdUsuario();
+	}
     }
-
 }
