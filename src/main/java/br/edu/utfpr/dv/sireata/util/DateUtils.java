@@ -82,16 +82,14 @@ public class DateUtils {
 	}
 	
 	public static Date concat(Date date, Date time){
-		Calendar cal = Calendar.getInstance();
-		Calendar cal2 = Calendar.getInstance();
+		getCalendarDry(time).get(Calendar.HOUR_OF_DAY,
+	        getCalendarDry(date).set(Calendar.HOUR_OF_DAY));
 		
-		cal.setTime(date);
-		cal2.setTime(time);
+		getCalendarDry(time).get(Calendar.MINUTE, 
+		getCalendarDry(date).set(Calendar.MINUTE));
 		
-		cal.set(Calendar.HOUR_OF_DAY, cal2.get(Calendar.HOUR_OF_DAY));
-		cal.set(Calendar.MINUTE, cal2.get(Calendar.MINUTE));
+		return getCaelndarDry(date).getTime();
 		
-		return cal.getTime();
 	}
 	
 	public static String format(Date date, String format){
@@ -127,5 +125,4 @@ public class DateUtils {
 		
 		return cal.getTime();
 	}
-	
 }
