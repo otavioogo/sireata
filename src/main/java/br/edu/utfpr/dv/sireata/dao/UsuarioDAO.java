@@ -81,7 +81,7 @@ public class UsuarioDAO extends Database<Usuario>{
 			if((conn != null) && !conn.isClosed())
 				conn.close();
 		}
-	}//Não desistir
+	}
 	
 	public String buscarEmail(int id) throws SQLException{
 		Connection conn = null;
