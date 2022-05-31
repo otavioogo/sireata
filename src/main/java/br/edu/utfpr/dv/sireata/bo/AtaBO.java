@@ -29,13 +29,10 @@ import br.edu.utfpr.dv.sireata.model.AtaReport;
 import br.edu.utfpr.dv.sireata.model.Orgao;
 import br.edu.utfpr.dv.sireata.model.ParticipanteReport;
 
-public class AtaBO {
 	
 	public Ata buscarPorId(int id) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.buscarPorId(id);
+			return getDAO().buscarPorID(id)
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -45,9 +42,7 @@ public class AtaBO {
 	
 	public Ata buscarPorNumero(int idOrgao, TipoAta tipo, int numero, int ano) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.buscarPorNumero(idOrgao, tipo, numero, ano);
+			return new AtaDAO().buscarPorNumero(tipo,numero ,ano);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -57,9 +52,7 @@ public class AtaBO {
 	
 	public Ata buscarPorPauta(int idPauta) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.buscarPorPauta(idPauta);
+			return new AtaDAO().buscarPorPauta(idPauta);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -69,9 +62,7 @@ public class AtaBO {
 	
 	public int buscarProximoNumeroAta(int idOrgao, int ano, TipoAta tipo) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.buscarProximoNumeroAta(idOrgao, ano, tipo);
+			return new AtaDAO().buscarProximoNumeroAta(idOrgao, ano, tipo);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -81,9 +72,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPublicadas() throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPublicadas();
+			return new AtaDAO().listarPublicadas();
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -93,9 +82,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorOrgao(int idOrgao) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorOrgao(idOrgao);
+				return new AtaDAO().listarPorOrgao(idOrgao);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -105,9 +92,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorDepartamento(int idDepartamento) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorDepartamento(idDepartamento);
+				return new AtaDAO().listarPorDepartamento(idDepartamento);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -117,9 +102,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorCampus(int idCampus) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorCampus(idCampus);
+				return new AtaDAO().listarPorCampus(idCampus);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -129,9 +112,7 @@ public class AtaBO {
 	
 	public List<Ata> listarNaoPublicadas(int idUsuario) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarNaoPublicadas(idUsuario);
+			return new AtaDAO().listarNaoPublicadas(idUsuario);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -141,9 +122,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorOrgao(int idOrgao, int idUsuario) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorOrgao(idOrgao, idUsuario);
+			return new AtaDAO().listarPorOrgao(idOrgao, idUsuario);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -153,9 +132,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorDepartamento(int idDepartamento, int idUsuario) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorDepartamento(idDepartamento, idUsuario);
+			return new AtaDAO().listarPorDepartamento(idDepartamento, idUsuario);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -165,9 +142,7 @@ public class AtaBO {
 	
 	public List<Ata> listarPorCampus(int idCampus, int idUsuario) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			return dao.listarPorCampus(idCampus, idUsuario);
+			return new AtaDAO().listarPorCampus(idCampus, idUsuario);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -201,9 +176,7 @@ public class AtaBO {
 	
 	public int salvar(Ata ata) throws Exception{
 		try{
-			AtaDAO dao = new AtaDAO();
-			
-			int id = dao.salvar(ata);
+			int id - getDAO().salvar(ata);
 			
 			if(ata.getPauta() != null){
 				int i = 1;
@@ -515,5 +488,11 @@ public class AtaBO {
 		
 		return resultado;
 	}
+	
+	
+	@Override 
+		public Database<Ata> getDAO() {
+			return new AtaDAO();
+		}
 
-}
+	}
