@@ -8,10 +8,28 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.dv.sireata.bo.AtaBO;
+import br.edu.utfpr.dv.sireata.bo.Factory;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 
-public class AnexoDAO {
-	
+public class AnexoDAO  extends Database{
+	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+	}
+	private void fechaConec(Connection conn, Statement stmt, ResultSet rs) throws SQLException {
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+	}
+	@Override
 	public Anexo buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -32,14 +50,11 @@ public class AnexoDAO {
 				return null;
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
+
+	
 	
 	public List<Anexo> listarPorAta(int idAta) throws SQLException{
 		Connection conn = null;
@@ -61,15 +76,11 @@ public class AnexoDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
+	@Override
 	public int salvar(Anexo anexo) throws SQLException{
 		boolean insert = (anexo.getIdAnexo() == 0);
 		Connection conn = null;
@@ -106,12 +117,7 @@ public class AnexoDAO {
 			
 			return anexo.getIdAnexo();
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -143,5 +149,7 @@ public class AnexoDAO {
 		
 		return anexo;
 	}
+	
+	
 
 }
