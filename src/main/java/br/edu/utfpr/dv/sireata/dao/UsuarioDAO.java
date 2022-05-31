@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import br.edu.utfpr.dv.sireata.model.Usuario;
 
 public class UsuarioDAO extends Database<Usuario>{
@@ -252,6 +253,7 @@ public class UsuarioDAO extends Database<Usuario>{
 				if((conn != null) && !conn.isClosed())
 					conn.close();
 			}
+			
 		}else
 			return null;
 	}
@@ -278,4 +280,6 @@ public class UsuarioDAO extends Database<Usuario>{
 		}
 	}
 
+	
+	
 }
